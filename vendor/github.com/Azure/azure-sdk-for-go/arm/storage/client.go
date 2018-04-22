@@ -33,7 +33,7 @@ const (
 
 var (
 	// APIVersion is the API version for rest call
-	APIVersion = "2017-06-01"
+	APIVersion = "2016-01-01"
 )
 
 // init will get the api version from environment variable, or use the default value.
