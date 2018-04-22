@@ -41,10 +41,11 @@ func main() {
 	listKeysResult, err := storageAccountClient.ListKeys(resourceGroup, SAName)
 
 	if err != nil {
-		println(err)
+		fmt.Println(err)
 	}
 	if listKeysResult.Keys == nil {
 		fmt.Printf("azureDisk - empty listKeysResult in storage account:%s keys", SAName)
+		return
 	}
 	for _, v := range *listKeysResult.Keys {
 		fmt.Printf(" Key Name: %s  key vaule: %s", *v.KeyName, *v.Value)
