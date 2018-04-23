@@ -1,6 +1,4 @@
-// +build windows
-
-package adal
+package utils
 
 // Copyright 2017 Microsoft Corporation
 //
@@ -17,9 +15,18 @@ package adal
 //  limitations under the License.
 
 import (
-	"os"
-	"strings"
+	"bytes"
+	"os/exec"
 )
 
-// msiPath is the path to the MSI Extension settings file (to discover the endpoint)
-var msiPath = strings.Join([]string{os.Getenv("SystemDrive"), "WindowsAzure/Config/ManagedIdentity-Settings"}, "/")
+// GetCommit returns git HEAD (short)
+func GetCommit() string {
+	cmd := exec.Command("git", "rev-parse", "HEAD")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		return ""
+	}
+	return string(out.Bytes()[:7])
+}
