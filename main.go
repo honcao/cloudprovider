@@ -23,7 +23,7 @@ func main() {
 	os.Setenv("APIVERSION_ARM_NETWORK_SCALESET", "2015-06-15")
 	os.Setenv("APIVERSION_ARM_STORAGE", "2016-01-01")
 	os.Setenv("APIVERSION_STORAGE", "2016-05-31")
-	resourceManagerEndpoint := os.Getenv("RESOURCEMANAGERENDPOINT") // "https://management.local.azurestack.external"
+	resourceManagerEndpoint := "https://management.local.azurestack.external" //os.Getenv("RESOURCEMANAGERENDPOINT") // "https://management.local.azurestack.external"
 	fmt.Printf("abc")
 	fmt.Printf(os.Getenv("SUBSCRIPTIONID"))
 	subscriptionID := "2b0feee4-6113-4b72-a101-a05237d923e9"                                                              //os.Getenv("SUBSCRIPTIONID")                       //"110054c2-21bc-442c-b214-c31c2578a371"
